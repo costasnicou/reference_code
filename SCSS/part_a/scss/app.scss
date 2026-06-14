@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box
+}
+
+$color-primary: #2f2f2f;
+$color-secondary:#f08a5d;
+$color-tertiary:#b83b5e;
+$color-text-dark: #333;
+$color-text-white: #fff;
+$width-btn:150px;
+
+// mixins
+
+@mixin clearfix{
+    &::after{
+        content: "";
+        clear: both;
+        display: table;
+    }
+}
+
+
+@mixin style-link-text($col){
+    text-decoration: none;
+    text-transform: uppercase;   
+    color: $col;
+}
+
+
+// functions
+@function divide($a,$b){
+    @return $a / $b;
+}
+
+
+// extends
+%btn-placeholder{
+    padding: 10px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 100px;
+    width: $width-btn;
+    @include style-link-text($color-text-white);
+}
+
+
+nav{
+
+    // margin: 30px;
+    background-color: $color-primary;
+    padding: divide(40,2 ) *1px;  //padding: 20px;
+
+    // display: flex;
+    // align-items: center;
+    @include clearfix;
+  
+}
+
+.navigation{
+    list-style: none;
+    text-align: center;
+    float: left;
+    margin-top: 10px;
+    margin-left: 200px;
+    li{
+        display: inline-block;
+        margin-left: 30px;
+
+        &:first-child{
+            margin: 0;
+            
+        }
+
+        a:link{
+            // text-decoration: none;
+            // color: $color-text-white;
+            @include style-link-text($color-text-white);
+        }
+
+
+    }
+
+   
+}
+
+.buttons{
+    float: right;
+}
+
+
+.btn-main{
+    color: $color-text-white;
+    &:link{
+        @extend %btn-placeholder;
+        background-color: $color-secondary;
+    }
+
+    &:hover{
+       background-color: darken($color-secondary,5%);
+    }
+}
+
+.btn-hot{
+    color: $color-text-white;
+    &:link{
+        @extend %btn-placeholder;
+        background-color: $color-tertiary;
+    }
+
+    &:hover{
+       background-color: darken($color-tertiary,5%);
+    }
+}
+

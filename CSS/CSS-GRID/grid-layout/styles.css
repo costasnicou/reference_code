@@ -1,0 +1,42 @@
+body,html{
+    margin: 0;
+    padding: 0;
+}
+.layout{
+
+    width: 55%;
+    margin: 30px auto;
+    display: grid;
+    grid-template-rows: 100px 200px 500px 100px;
+    /* grid-template-columns: 2; */
+    grid-template-columns: repeat(3,1fr) 350px;
+    grid-row-gap: 30px;
+    grid-column-gap: 30px;
+}
+
+.grid-item{
+    border: 1px solid orangered;
+    /* background-color: orangered; */
+    color: orangered;
+    /* border-radius: 20px; */
+    
+}
+
+.header{
+    grid-column: 1/5 ;
+}
+
+.sidebar{
+    grid-row: 2/4;
+    grid-column: 4/5;
+}
+
+.main-content{
+    grid-row: 3/4;
+    grid-column: 1/4;
+}
+
+.footer{
+    grid-row: 4/5;
+    grid-column: 1/5;
+}
