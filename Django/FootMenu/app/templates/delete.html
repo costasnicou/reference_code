@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block main %}
+
+  <h1>Deleting {{item.item_name}}</h1>
+  <p>Are you sure you want to proceed?</p>
+  <form action="{% url 'app:delete_item' item.id %}" class="delete-form" method="POST">
+    {% csrf_token %}
+    <input class="delete-submit" type="submit" value="Delete">
+
+  </form>
+{% endblock %}

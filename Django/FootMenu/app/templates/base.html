@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Menu App</title>
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'css/frontpage.css' %}">
+     <link rel="stylesheet" href="{% static 'css/single.css' %}">
+
+</head>
+<body>
+    <header class="header">
+        <nav class="main-nav">
+
+            <img src="{% static 'imgs/logo.png' %}" alt="" class="logo"">
+
+            <ul class="main-nav-menu">
+                <li class="list-item"><a href="{% url 'app:index' %}" class="link-item">Home</a></li>
+                <li class="list-item"><a href="{% url 'app:add_item' %}" class="link-item">Add Item</a></li>
+                {% if user.is_authenticated %}
+
+                   
+
+                    <form action="{% url 'users:logout' %}" method="POST">
+                        {% csrf_token %}
+
+                        <button type="submit" class="logout link-item">Logout</button>
+                    </form>
+
+                {% endif %}
+            </ul>
+        </nav>
+
+    </header>
+
+    <main class="main">
+        <div class="content-wraper">
+            {% block main %}
+
+            {% endblock %}
+
+        </div>
+      
+
+    </main>
+
+    <footer class="footer">
+        <p>&copy; Copyright 2026 - Designed & Developed by Kostas Nikou</p>
+    </footer>
+
+    
+</body>
+</html>

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block main %}
+    <section class="single-food">
+        <h1>Your Selected Choice</h1>
+        <div class="single-food-choice">
+            <img src="{{item.item_img}}" alt="">
+
+            <div class="item-details">
+                <h2>{{item.item_name}}</h2>
+                <p>{{item.item_description}}</p>
+                <p class="price-p">Price: <span>€{{item.item_price}}</span></p>
+                <div class="actions">
+                    <a href="{% url 'app:edit_item' item.id %}" class="edit-submit">Edit Item</a>
+                    <a href="{% url 'app:delete_item' item.id %}" class="delete-submit">Delete</a>
+                </div>
+            </div>
+          
+           
+        </div>
+
+    </section>
+    
+{% endblock %}

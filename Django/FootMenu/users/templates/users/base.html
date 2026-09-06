@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Register</title>
+    <link rel="stylesheet" href="{% static 'css/users/global.css' %}">
+
+</head>
+<body>
+    <header class="login-register-header">
+
+    </header>
+    
+    <main class="login-register-main">
+        <div class="main-wraper">
+            {% block main  %}
+
+            {% endblock %}
+
+        </div>
+     
+
+    </main>
+
+    <footer class="login-register-footer">
+
+    </footer>
+</body>
+</html>

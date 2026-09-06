@@ -1,0 +1,54 @@
+body,html{
+    margin: 0;
+    padding: 0;
+}
+*{
+    box-sizing: border-box;
+}
+.login-register-main{
+      height: 100vh;
+}
+.main-wraper{
+     height: 100vh;
+}
+h1{
+    color: peru;
+    margin-top: 0;
+}
+.register-form{
+   display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: 85vh;
+    width: 70%;
+    margin: 0 auto;
+  
+}
+.form-group{
+    width: 30%;
+}
+
+.register-form input:not(input[type="submit"]){
+    margin: 10px 0;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px;
+    width: 100%;
+    
+}
+
+input[type="submit"]{
+    background-color: peru;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin-top: 10px;
+    width: 150px;
+}
+
+input[type="submit"]:hover{
+     background-color: rgb(169, 110, 51);
+}

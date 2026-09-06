@@ -1,0 +1,74 @@
+
+
+/* FOOD CHOICES */
+
+
+.food-choices h1{
+    text-align: center;
+}
+
+.food-choices .menu{
+    width: 95%;
+    margin: 30px auto;
+}
+
+.menu{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+     
+  
+}
+
+
+.item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid royalblue; */
+    margin: 0 10px 30px 10px;
+    width: 25%;
+    background-color: rgb(255, 226, 198);
+    padding: 20px;
+    border-radius: 10px;
+    transition: background-color 0.4s ease-in-out;
+   
+
+}
+
+.item:hover{
+      /* background-color: rgb(205, 218, 254);
+       */
+       background-color: rgb(218, 175, 135);
+}
+
+.item img{
+    border-radius: 10px;
+    object-fit: cover;
+    width: 150px;
+    height: 150px;
+    /* align-self:center; */
+}
+
+.item > .item-info{
+    margin-left: 10px;
+}
+
+.item-info h2{
+    margin-bottom: 0;
+} 
+ 
+.item-info p{
+    margin-top: 5px;
+}
+
+.item-info a{
+    background-color: royalblue;
+     background-color: peru;
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: inline-block;
+    /* margin-top: 10px; */
+}
