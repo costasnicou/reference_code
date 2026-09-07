@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<h1>{{user.username}} Profile</h1>
+<img src="{{profile.image.url}}" alt="" width="100px" height="100px">
+
+<p>Location: {{profile.location}}</p>
+
+<button class="submit" onclick="">Edit Details</button>
+<form action="{% url 'users:profile' %}" class="profile-form hidden" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h2>Profile Edit</h2>
+    <div class="form-group">
+        {{form.image.label}} <br>
+        {{form.image}}
+    </div>
+
+    <div class="form-group">
+        {{form.location.label}} <br>
+        {{form.location}}
+    </div>
+
+    <input type="submit" value="Save" class="submit save-profile">
+</form>
+
+{% endblock %}
+
+{% block scriptarea %}
+    <script>
+       const showForm = document.querySelector('button.submit');
+       const closeForm = document.querySelector('.save-profile');
+       const form = document.querySelector('.profile-form');
+
+       showForm.onclick = function(){
+          
+            form.classList.remove('hidden');
+       }
+
+    //    closeForm.onsubmit = function(){
+    //         form.classList.add('hidden');
+    //    }
+     
+    </script>
+
+{% endblock %}
+   

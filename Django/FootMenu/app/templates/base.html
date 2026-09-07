@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{% static 'css/global.css' %}">
     <link rel="stylesheet" href="{% static 'css/frontpage.css' %}">
      <link rel="stylesheet" href="{% static 'css/single.css' %}">
+        <link rel="stylesheet" href="{% static 'css/users/profile.css' %}">
 
 </head>
 <body>
@@ -25,7 +26,7 @@
 
                     <form action="{% url 'users:logout' %}" method="POST">
                         {% csrf_token %}
-
+                        <span style="color:white;">Welcome  <a href="{% url 'users:profile' %}" style="color: white;text-decoration: none; font-weight: bold;">{{ user.username }}</a></span>
                         <button type="submit" class="logout link-item">Logout</button>
                     </form>
 
@@ -50,6 +51,9 @@
         <p>&copy; Copyright 2026 - Designed & Developed by Kostas Nikou</p>
     </footer>
 
-    
+    {% block scriptarea %}
+   
+
+    {% endblock %}
 </body>
 </html>

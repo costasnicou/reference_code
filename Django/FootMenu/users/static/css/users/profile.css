@@ -1,0 +1,12 @@
+.profile-form{
+    width: 30%;
+    margin-top: 20px;
+}
+
+button.submit,input[type="submit"]{
+    width: 120px;
+}
+
+.hidden{
+    display: none;
+}

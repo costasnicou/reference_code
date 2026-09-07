@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/6.1/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -127,3 +127,19 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+
+############ custom login setting functionality##########
+#############################################################
+# when the user is logged out and we user @login_required
+LOGIN_URL = "users:login"
+# redirection after successfull login
+LOGIN_REDIRECT_URL = "app:index"
+# redirection after successful logout
+LOGOUT_REDIRECT_URL = "users:login"
+
+############ custom login setting functionality##########
+#############################################################
+# use the base dir + pictures -> if it does not exists it creates it
+# to be used as the path location for uploaded pictures
+MEDIA_ROOT = os.path.join(BASE_DIR,'pictures')
+MEDIA_URL ='/media/'

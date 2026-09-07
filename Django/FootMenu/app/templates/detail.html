@@ -1,6 +1,16 @@
 {% extends 'base.html' %}
 {% block main %}
     <section class="single-food">
+         <div class="message">
+            {% if user.is_authenticated %}
+                {% if messages %}
+                    {% for message in messages %}
+                    <p style="margin:10px;width: 100%; 
+            background-color: lightseagreen;border-radius: 10px;; color:white; padding: 10px; top: 0;text-align: center;"> {{message}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endif %}
+        </div>
         <h1>Your Selected Choice</h1>
         <div class="single-food-choice">
             <img src="{{item.item_img}}" alt="">
