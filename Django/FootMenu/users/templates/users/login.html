@@ -17,7 +17,18 @@
         <img src="{% static 'imgs/logo.png' %}" alt="">
         <h1>Login</h1>
         {% csrf_token %}
-        
+        {% if form.non_field_errors %}
+            <div style="background-color: orangered; color: white; padding: 5px; width: 100%;">
+                {% for error in form.non_field_errors %}
+                    <p style="margin: 0;">{{error}}</p>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No errors found</p>
+        {% endif %}
+
+
+
         <div class="form-group">
             {{form.username.label}} <br>
             {{form.username}}
