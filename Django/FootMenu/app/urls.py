@@ -7,11 +7,13 @@ from django.conf.urls.static import static
 app_name = 'app'
 
 urlpatterns = [
-    path("",views.index,name="index"),
-    path("<int:id>",views.item_detail,name="item_detail"),
-    path("add-item",views.add_item,name="add_item"),
-    path("edit-item/<int:id>",views.edit_item,name="edit_item"),
-    path("delete-item/<int:id>",views.delete_item,name="delete_item"),
+    path("",views.IndexClassView.as_view(),name="index"),
+    # instead of passing an id in Detail Class view we pass a pk
+    path("<int:pk>",views.FoodDetailClassView.as_view(),name="item_detail"),
+    path("add-item",views.AddItemClassView.as_view(),name="add_item"),
+    # instead of passing an id in Edit Class view we pass a pk
+    path("edit-item/<int:pk>",views.EditItemClassView.as_view(),name="edit_item"),
+    path("delete-item/<int:pk>",views.ItemDeleteClassView.as_view(),name="delete_item"),
 
 ]
 
