@@ -4,6 +4,17 @@
     <form action="{% url 'app:add_item' %}" class="add-item-form" method="POST">
         <h1>Add New Item</h1>
         {% csrf_token %}
+           {% if messages %}
+                
+                {% for message in messages %}
+                    {% if message.tags == "error" %}
+                       
+                    <p style="margin:10px;width: 100%; 
+            background-color: rgb(184, 90, 85);border-radius: 10px;; color:white; padding: 10px; top: 0;text-align: center;"> {{message}}</p>
+                    {% endif %}
+                {% endfor %}
+                
+            {% endif %}
         
         <div class="form-group">
             {{form.item_name.label}} <br>

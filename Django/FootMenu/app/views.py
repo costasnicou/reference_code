@@ -37,6 +37,12 @@ def add_item(request):
             form.save()
             messages.success(request,f"You have successfully added {item_name}!")
             return redirect('app:index')
+        else:
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, error)
+            
+        
     
     return render(request,"add.html",{
         "form":form,
