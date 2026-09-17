@@ -3,7 +3,28 @@ from .models import Item
 from .forms import AddItem
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.http import JsonResponse
+from .serializers import ItemSerializer
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+
+
 # Create your views here.
+
+
+# django rest api
+# manual conversion to json
+def items_json(request):
+    items = Item.objects.all().values("id","item_name","item_description","item_price","item_img")
+
+    return JsonResponse(list(items),safe=False)
+
+# using serialization
+@api_view(["GET"])
+def item_list_api(request):
+    items = Item.objects.all()
+    serializer = ItemSerializer(items,many=True)
+    return Response(serializer.data)
 
 @login_required(login_url="users:login")
 def index(request):

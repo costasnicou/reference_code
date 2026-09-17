@@ -7,6 +7,12 @@ from django.conf.urls.static import static
 app_name = 'app'
 
 urlpatterns = [
+
+    # api views
+    path("json-data",views.items_json,name="items_json"),
+    path("list-api",views.item_list_api,name="item_list_api"),
+
+    # app views
     path("",views.index,name="index"),
     path("<int:id>",views.item_detail,name="item_detail"),
     path("add-item",views.add_item,name="add_item"),
