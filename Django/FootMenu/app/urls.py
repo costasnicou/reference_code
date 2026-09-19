@@ -10,7 +10,10 @@ urlpatterns = [
 
     # api views
     path("json-data",views.items_json,name="items_json"),
-    path("list-api",views.item_list_api,name="item_list_api"),
+    path("api/list-items",views.item_list_api,name="item_list_api"),
+    path("api/get-single/<int:id>",views.get_single_api,name="get_single_api"),
+    path("api/post-single",views.post_single_api,name="post_single_api"),
+    path("api/put-single/<int:id>",views.put_single_api,name="put_single_api"),
 
     # app views
     path("",views.index,name="index"),

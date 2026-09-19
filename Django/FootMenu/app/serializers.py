@@ -2,7 +2,13 @@ from rest_framework import serializers
 from .models import Item
 
 
-class ItemSerializer(serializers.ModelSerializer):
+class ItemsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Item
         fields = ["id","item_name","item_description","item_price","item_img"]
+
+
+# class SingleSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Item
+#         fields

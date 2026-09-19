@@ -4,7 +4,7 @@ from .forms import AddItem
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.http import JsonResponse
-from .serializers import ItemSerializer
+from .serializers import ItemsSerializer
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
@@ -12,20 +12,58 @@ from rest_framework.decorators import api_view
 # Create your views here.
 
 
-# django rest api
+#----------start rest api------------------------#
 # manual conversion to json
 def items_json(request):
     items = Item.objects.all().values("id","item_name","item_description","item_price","item_img")
 
     return JsonResponse(list(items),safe=False)
 
-# using serialization
+# using serialization list items
 @api_view(["GET"])
 def item_list_api(request):
     items = Item.objects.all()
-    serializer = ItemSerializer(items,many=True)
+    serializer = ItemsSerializer(items,many=True)
     return Response(serializer.data)
 
+
+#GET Single item API
+@api_view(["GET"])
+def get_single_api(request,id):
+    if request.method == "GET":     
+        item = Item.objects.get(pk=id)  
+        serializer = ItemsSerializer(item,many=False)
+        return Response(serializer.data)
+
+# POST single item API
+@api_view(["POST"])
+def post_single_api(request):
+    if request.method == "POST":
+        serializer = ItemsSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+
+
+#GET, PUT, DELETE Single item API
+@api_view(["GET","PUT","DELETE"])
+def put_single_api(request,id):
+    item = Item.objects.get(pk=id)
+    if request.method == "GET":          
+            serializer = ItemsSerializer(item)
+            return Response(serializer.data)
+    if request.method == "PUT":
+        serializer = ItemsSerializer(item,data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+    if request.method == "DELETE":
+        item.delete()
+        return Response({"message":"Item has been deleted Successfully"})
+
+
+
+#---------- end rest api-----------------------#
 @login_required(login_url="users:login")
 def index(request):
     items = Item.objects.all().order_by("-id")
