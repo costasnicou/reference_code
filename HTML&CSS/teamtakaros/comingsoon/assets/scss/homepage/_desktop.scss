@@ -1,0 +1,151 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+}
+// .body{
+//     height: 100vh;
+// }
+
+.main,.main-wraper{
+    width: 100%;
+    height: 100vh;
+
+}
+
+.main-wraper{
+    position: relative;
+
+    .intro-video{
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+        margin: 0;
+        position: relative;
+        z-index: -1;
+    }
+
+    .overlay{
+            background-color: rgba(0,0,0,0.4);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            .home-article{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                height: 100vh;
+                text-align: center;
+                position: relative;
+                z-index: 10000;
+                top: -10px;
+               
+               
+
+                & > *{
+                    margin: 5px 0;
+                }
+
+                img{
+                    border-radius: 15%;
+                    opacity: 0.6;
+                }
+                h1{
+                    font-size: 80px;
+                    font-family: "Jim Nightshade", cursive;
+                    line-height: 15px;
+                }
+                h2{
+                    font-size: 40px;
+                }
+                h1,h2{
+                    font-weight: 300;
+                    opacity: 0.95;
+                    font-family: "Jim Nightshade", cursive;
+                }
+
+                h1,h2,p{
+                    text-shadow: 10px 10px 10px 10px black;
+                }
+
+                .contact{
+                    margin-top: -30px;
+                    .location{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        text-align: center;
+                        justify-content: center;
+                          opacity: 0.95;
+                        
+                        i{
+                            font-size: 35px;
+                           margin-bottom: 20px;
+                              opacity: 0.95;
+                        }
+                    }
+
+                    .social{
+                        margin-top: 40px;
+                      
+                        a{
+                            margin: 8px;
+                            //  opacity: 0.95;
+                            //  color: white;
+                           
+                             width: 40px;
+                             height: 40px;
+                             display: inline-block;
+                             position: relative;
+                             border-radius: 20px;
+                            //  padding: 15px 10px;
+                        }
+                        a i{
+                            // color: white;
+                            font-size: 35px;
+                             opacity: 0.95;
+                             position: absolute;
+                             top: 62%;
+                             left: 50%;
+                             transform: translate(-50%,-50%);
+                            background-color: rgba(255, 255, 255, 0.863);
+                            background-color: whitesmoke;
+                             opacity: 0.8;
+                             padding: 2.5px;
+                             border-radius: 5px;
+                        }
+
+                        .fb i{
+                            color: rgb(19, 3, 248);
+
+                        }
+
+                        .insta i{
+                            color: rgb(202, 37, 103);
+                        }
+                    }
+                }
+            }
+
+        }
+}
+
+ .article-content{
+    background-color: rgba(0, 0, 0, 0.08);
+    padding: 80px 160px;
+    border-radius: 20px;
+}
